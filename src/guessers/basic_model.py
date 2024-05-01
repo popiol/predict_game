@@ -9,5 +9,5 @@ class BasicModel(PatternGuesser):
         super().__init__(dims)
         self.step = 0
 
-    def guess_next(last_pattern: np.array) -> np.array:
+    def guess_next(self, last_pattern: np.array) -> np.array:
         pass
