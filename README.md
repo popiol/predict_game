@@ -5,6 +5,7 @@ This repository implements a playground for ML methods by setting up a simple pr
 ## Game rules
 
 In the simples version, the game is using a squared board of 0/1 values.
+
 ```
 0 1 0 0
 0 1 0 0
