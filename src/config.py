@@ -25,7 +25,8 @@ class Config:
     def from_yaml_file(file_path: str):
         with open(file_path) as f:
             config = yaml.load(f, Loader=yaml.FullLoader)
-        for key in ["creator", "guesser"]:
-            config[key] = Config.get_class(config[key])()
+        dims: list[int] = config["dims"]
+        sub_dims = dims[1:] or [1]
+        config["creator"] = Config.get_class(config["creator"])(dims)
+        config["guesser"] = Config.get_class(config["guesser"])(sub_dims)
         return Config(**config)
-    
