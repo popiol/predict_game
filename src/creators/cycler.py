@@ -13,7 +13,7 @@ class Cycler(PatternCreator):
 
     def create_pattern(self) -> np.array:
         pattern = np.zeros(self.dims, dtype=int)
-        pattern[self.pos] = 1
+        pattern[tuple(self.pos)] = 1
         sum_dims = sum(self.dims)
         cumsums = np.cumsum([x -1 for x in self.dims])
         next_step = (self.step + 1) % (sum_dims - len(self.dims))
@@ -23,7 +23,6 @@ class Cycler(PatternCreator):
                 break
         self.pos[direction_index] += self.direction
         if self.step == sum_dims - len(self.dims) - 1:
-            print("step", self.step, "changing direction")
             self.direction = -self.direction
         self.step = next_step
         return pattern

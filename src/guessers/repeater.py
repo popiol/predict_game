@@ -3,8 +3,7 @@ import numpy as np
 from src.pattern_guesser import PatternGuesser
 
 
-
-class BasicModel(PatternGuesser):
+class Repeater(PatternGuesser):
 
     def __init__(self, dims: list[int]):
         super().__init__(dims)
