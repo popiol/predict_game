@@ -10,4 +10,4 @@ class BasicModel(PatternGuesser):
         self.step = 0
 
     def guess_next(self, last_pattern: np.array) -> np.array:
-        pass
+        return last_pattern

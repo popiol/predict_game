@@ -1,5 +1,10 @@
-from src.config import Config
+import argparse
+import sys
+import time
+
 import numpy as np
+
+from src.config import Config
 
 
 class Game:
@@ -18,7 +23,7 @@ class Game:
             pattern = self.config.creator.create_pattern()
             sub_pattern = self.pick_sub_pattern(pattern)
             if turn_index > 0:
-                if sub_pattern == guessed:
+                if (sub_pattern == guessed).all():
                     n_correct += 1
                     print("Correct guess", f"({n_correct} so far)")
                     if n_correct > max_correct:
@@ -37,3 +42,15 @@ class Game:
             "correct guesses in a row, expected",
             self.config.min_n_correct,
         )
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config")
+    args, other = parser.parse_known_args(sys.argv)
+    time1 = time.time()
+
+    config = Config.from_yaml_file(args.config)
+    Game(config).run()
+
+    time2 = time.time()
+    print("Overall execution time:", time2 - time1)
