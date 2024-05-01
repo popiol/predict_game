@@ -2,16 +2,15 @@
 
 This repository implements a playground for ML methods by setting up a simple problem of guessing a pattern.
 
-# Game rules
+## Game rules
 
 In the simples version, the game is using a squared board of 0/1 values.
-
-``
+```
 0 1 0 0
 0 1 0 0
 0 1 0 0
 0 1 1 1
-``
+```
 
 In general, the board might be higher dimensional and have a different length in each dimension.
 
