@@ -37,13 +37,9 @@ class Game:
                     n_correct = 0
                     print("Incorrect guess")
             guessed = self.config.guesser.guess_next(sub_pattern)
-        print(
-            "Failure.",
-            "Only",
-            max_correct,
-            "correct guesses in a row, expected",
-            self.config.min_n_correct,
-        )
+        if n_correct < self.config.min_n_correct:
+            print("Failure.", "Only", max_correct, "correct guesses in a row, expected", self.config.min_n_correct)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

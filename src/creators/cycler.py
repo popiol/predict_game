@@ -15,7 +15,7 @@ class Cycler(PatternCreator):
         pattern = np.zeros(self.dims, dtype=int)
         pattern[tuple(self.pos)] = 1
         sum_dims = sum(self.dims)
-        cumsums = np.cumsum([x -1 for x in self.dims])
+        cumsums = np.cumsum([x - 1 for x in self.dims])
         next_step = (self.step + 1) % (sum_dims - len(self.dims))
         for index, cumsum in enumerate(cumsums):
             if cumsum > self.step:
