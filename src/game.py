@@ -23,8 +23,6 @@ class Game:
             pattern = self.config.creator.create_pattern()
             sub_pattern = self.pick_sub_pattern(pattern)
             if turn_index > 0:
-                print("true   ", sub_pattern)
-                print("guessed", guessed)
                 if (sub_pattern == guessed).all():
                     n_correct += 1
                     print("Correct guess", f"({n_correct} so far)")

@@ -19,7 +19,7 @@ There are two players, one of them fills the board with 0/1 values to form a pat
 The other player can only see the last row of the board, 
 and tries to guess what the values are going to be in the last row in the next turn.
 
-The important thing to note is that the first player has to follow some logical rules to change the pattern in each turn,
+It is important to note that the first player has to follow logical rules to change the pattern in each turn,
 meaning that the patterns cannot be random.
 
 The game ends when the second player correctly guesses the pattern required number of times in a row, 
