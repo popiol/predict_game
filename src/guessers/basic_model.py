@@ -34,11 +34,11 @@ class BasicModel(PatternGuesser):
         l = inputs
         l = keras.layers.Flatten()(l)
         for _ in range(1):
-            l = keras.layers.Dense(100)(l)
+            l = keras.layers.Dense(100, activation="relu")(l)
         l = keras.layers.Dense(sum(self.dims))(l)
-        l = keras.layers.Reshape((self.dims))(l)
+        l = keras.layers.Reshape(self.dims)(l)
         outputs = l
         model = keras.Model(inputs=inputs, outputs=outputs)
-        model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.001), loss=keras.losses.Huber(0.5))
+        model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.01), loss=keras.losses.Huber(0.5))
         model.summary()
         return model
