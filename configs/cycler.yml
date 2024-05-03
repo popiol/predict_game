@@ -1,5 +1,5 @@
-dims: [4, 4]
+dims: [4, 4, 4]
 creator: src.creators.cycler.Cycler
 guesser: src.guessers.basic_model.BasicModel
-max_n_turns: 150
+max_n_turns: 250
 min_n_correct: 30

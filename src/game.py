@@ -18,6 +18,7 @@ class Game:
     def run(self):
         n_correct = 0
         max_correct = 0
+        last_correct = True
         for turn_index in range(self.config.max_n_turns):
             print("Turn", turn_index)
             pattern = self.config.creator.create_pattern()
@@ -25,6 +26,7 @@ class Game:
             if turn_index > 0:
                 if (sub_pattern == guessed).all():
                     n_correct += 1
+                    last_correct = True
                     print("Correct guess", f"({n_correct} so far)")
                     if n_correct > max_correct:
                         max_correct = n_correct
@@ -33,8 +35,9 @@ class Game:
                         break
                 else:
                     n_correct = 0
+                    last_correct = False
                     print("Incorrect guess")
-            guessed = self.config.guesser.guess_next(sub_pattern)
+            guessed = self.config.guesser.guess_next(sub_pattern, last_correct)
         if n_correct < self.config.min_n_correct:
             print("Failure.", "Only", max_correct, "correct guesses in a row, expected", self.config.min_n_correct)
 
