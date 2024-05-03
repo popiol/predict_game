@@ -17,8 +17,8 @@ class Config:
     min_n_correct: int
 
     @staticmethod
-    def get_class(classpath: str):
-        module, class_name = classpath.rsplit(".", 1)
+    def get_class(class_path: str):
+        module, class_name = class_path.rsplit(".", 1)
         return getattr(import_module(module), class_name)
 
     @staticmethod
@@ -27,6 +27,6 @@ class Config:
             config = yaml.load(f, Loader=yaml.FullLoader)
         dims: list[int] = config["dims"]
         sub_dims = dims[1:] or [1]
-        config["creator"] = Config.get_class(config["creator"])(dims)
-        config["guesser"] = Config.get_class(config["guesser"])(sub_dims)
+        config["creator"] = Config.get_class(config["creator"]["class_path"])(dims, config["creator"])
+        config["guesser"] = Config.get_class(config["guesser"]["class_path"])(sub_dims, config["guesser"])
         return Config(**config)

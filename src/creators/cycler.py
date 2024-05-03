@@ -4,8 +4,8 @@ import numpy as np
 
 class Cycler(PatternCreator):
 
-    def __init__(self, dims: list[int]):
-        super().__init__(dims)
+    def __init__(self, dims: list[int], config: dict):
+        super().__init__(dims, config)
         self.step = self.dims[0] - 1
         self.pos = np.zeros(len(self.dims), dtype=int)
         self.pos[0] = self.dims[0] - 1

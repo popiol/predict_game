@@ -1,5 +1,8 @@
 dims: [4, 4, 4]
-creator: src.creators.cycler.Cycler
-guesser: src.guessers.basic_model.BasicModel
+creator: 
+  class_path: src.creators.cycler.Cycler
+guesser: 
+  class_path: src.guessers.basic_model.BasicModel
+  memory_length: 10
 max_n_turns: 250
 min_n_correct: 30
