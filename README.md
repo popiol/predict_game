@@ -45,3 +45,7 @@ The second player will only see the last row
 ```
 
 Then there will only be zeros in the last row for the next 8 turns, and then the cycle will repeat.
+
+## Running a game
+
+python -m src.game --config configs/cycler.yml
